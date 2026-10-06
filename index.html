@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skill Issue HQ app setup</title><style>
+:root{--bg:#F7F7F2;--fg:#111111;--muted:#575752;--line:#D8D8CF;--mark:#D9F24A;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#F2F2EC;--muted:#A6A69E;--line:#3A3A36;--mark:#D9F24A;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,"Segoe UI",system-ui,sans-serif}
+main{max-width:34rem;margin:0 auto;padding-block:3rem;padding-inline:16px;display:grid;gap:1.25rem}
+h1{font-size:1.5rem;line-height:1.2;margin:0;text-wrap:balance}
+h1 span{background:var(--mark);color:#111111;padding:0 .2em}
+p{margin:0;color:var(--muted)}
+button{font:inherit;font-weight:600;padding:.9rem 1.2rem;border:0;border-radius:6px;background:var(--fg);color:var(--bg);cursor:pointer;width:100%}
+button:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+code{display:block;font:600 1.1rem/1.4 ui-monospace,Menlo,monospace;padding:1rem;border:1px solid var(--line);border-radius:6px;word-break:break-all;color:var(--fg)}
+</style></head><body><main>
+<h1>Create the <span>Skill Issue HQ Publisher</span></h1>
+<p>One click registers a GitHub App in the Skill-issue-HQ-dev organization. It publishes pls,fix releases, so no personal account shows on the public repo.</p>
+<form action="https://github.com/organizations/Skill-issue-HQ-dev/settings/apps/new?state=bd841fcda6d1a76e473d8bce" method="post">
+<input type="hidden" name="manifest" id="manifest" value="{&quot;name&quot;: &quot;Skill Issue HQ Publisher&quot;, &quot;url&quot;: &quot;https://github.com/Skill-issue-HQ-dev&quot;, &quot;description&quot;: &quot;Publishes pls,fix releases for Skill Issue HQ.&quot;, &quot;hook_attributes&quot;: {&quot;url&quot;: &quot;https://skill-issue-hq-dev.github.io/app-setup/&quot;, &quot;active&quot;: false}, &quot;redirect_url&quot;: &quot;https://skill-issue-hq-dev.github.io/app-setup/done.html&quot;, &quot;public&quot;: false, &quot;default_permissions&quot;: {&quot;administration&quot;: &quot;write&quot;, &quot;contents&quot;: &quot;write&quot;, &quot;workflows&quot;: &quot;write&quot;, &quot;actions&quot;: &quot;write&quot;, &quot;metadata&quot;: &quot;read&quot;}, &quot;default_events&quot;: []}">
+<button type="submit">Create the app on GitHub</button>
+</form>
+<p>On the next page GitHub shows what the app may do. Press Create GitHub App, then copy the code you land on back into the chat.</p>
+</main></body></html>
