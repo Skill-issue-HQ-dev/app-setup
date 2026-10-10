@@ -2,21 +2,27 @@
 <title>Skill Issue HQ app code</title><style>
 :root{--bg:#F7F7F2;--fg:#111111;--muted:#575752;--line:#D8D8CF;--mark:#D9F24A;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--bg:#141413;--fg:#F2F2EC;--muted:#A6A69E;--line:#3A3A36;--mark:#D9F24A;color-scheme:dark}}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,"Segoe UI",system-ui,sans-serif}
 main{max-width:34rem;margin:0 auto;padding-block:3rem;padding-inline:16px;display:grid;gap:1.25rem}
 h1{font-size:1.5rem;line-height:1.2;margin:0;text-wrap:balance}
 h1 span{background:var(--mark);color:#111111;padding:0 .2em}
 p{margin:0;color:var(--muted)}
-button{font:inherit;font-weight:600;padding:.9rem 1.2rem;border:0;border-radius:6px;background:var(--fg);color:var(--bg);cursor:pointer;width:100%}
-button:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+button,a.btn{box-sizing:border-box;font:inherit;font-weight:600;padding:.9rem 1.2rem;border-radius:6px;cursor:pointer;width:100%;display:block;text-align:center;text-decoration:none}
+button{border:0;background:var(--fg);color:var(--bg)}
+a.btn{border:2px solid var(--fg);color:var(--fg)}
+button:focus-visible,a.btn:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
 code{display:block;font:600 1.1rem/1.4 ui-monospace,Menlo,monospace;padding:1rem;border:1px solid var(--line);border-radius:6px;word-break:break-all;color:var(--fg)}
 </style></head><body><main>
 <h1>App <span>created</span></h1>
-<p id="say">Copy this code into the chat with Claude. It works once and expires in an hour.</p>
+<p id="say">1. Copy this code. It works once and expires in an hour.</p>
 <code id="code">no code in the address</code>
 <button type="button" id="copy">Copy the code</button>
+<p id="step2" hidden>2. Install the app on Skill-issue-HQ-dev: keep "All repositories" and press Install.</p>
+<a class="btn" id="install" href="https://github.com/apps/skill-issue-hq-publisher/installations/new" hidden>Install the app</a>
+<p id="step3" hidden>3. Paste the code into the chat with Claude.</p>
 </main><script>
 var q=new URLSearchParams(location.search),c=q.get("code"),s=q.get("state"),el=document.getElementById("code");
-if(c&&s==="bd841fcda6d1a76e473d8bce"){el.textContent=c;}else{document.getElementById("say").textContent="This page needs the code GitHub adds to its address. Start again from the setup page.";document.getElementById("copy").hidden=true;}
+if(c&&s==="bd841fcda6d1a76e473d8bce"){el.textContent=c;["step2","install","step3"].forEach(function(id){document.getElementById(id).hidden=false;});}else{document.getElementById("say").textContent="This page needs the code GitHub adds to its address. Start again from the setup page.";document.getElementById("copy").hidden=true;}
 document.getElementById("copy").addEventListener("click",function(){var b=this;navigator.clipboard.writeText(el.textContent).then(function(){b.textContent="Copied";},function(){var r=document.createRange();r.selectNodeContents(el);var w=getSelection();w.removeAllRanges();w.addRange(r);});});
 </script></body></html>
